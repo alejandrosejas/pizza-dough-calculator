@@ -4,10 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Dough Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Pizza Dough Calculator</h1>
-    <p>Welcome to the Pizza Dough Calculator!</p>
-    <!-- More content will be added here -->
+    <div class="container">
+        <header>
+            <h1>🍕 Pizza Dough Calculator 🍕</h1>
+            <p class="subtitle">Create the perfect pizza dough for your needs</p>
+            <div class="unit-toggle">
+                <span class="unit-label">Units:</span>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="unitToggle" class="toggle-input">
+                    <label for="unitToggle" class="toggle-label">
+                        <span class="toggle-text">Metric</span>
+                        <span class="toggle-text">Imperial</span>
+                    </label>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="calculator-grid">
+                <!-- Input Section -->
+                <section class="input-section">
+                    <h2>Dough Settings</h2>
+                    <div class="input-group">
+                        <label>Style</label>
+                        <div class="style-buttons">
+                            <button type="button" class="style-btn active" data-style="neapolitan">
+                                <span class="style-name">Neapolitan</span>
+                                <span class="style-desc">Traditional Italian</span>
+                            </button>
+                            <button type="button" class="style-btn" data-style="ny">
+                                <span class="style-name">New York</span>
+                                <span class="style-desc">Classic American</span>
+                            </button>
+                            <button type="button" class="style-btn" data-style="thin">
+                                <span class="style-name">Thin Crust</span>
+                                <span class="style-desc">Light & Crispy</span>
+                            </button>
+                            <button type="button" class="style-btn" data-style="thick">
+                                <span class="style-name">Thick Crust</span>
+                                <span class="style-desc">Rich & Fluffy</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="pizzas">Number of Pizzas</label>
+                            <div class="number-input">
+                                <button class="decrease" type="button">-</button>
+                                <input type="number" id="pizzas" value="1" min="1" max="10">
+                                <button class="increase" type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="size">Pizza Size <span id="size-unit">(inches)</span></label>
+                            <select id="size">
+                                <option value="10">10" (25cm)</option>
+                                <option value="12" selected>12" (30cm)</option>
+                                <option value="14">14" (35cm)</option>
+                                <option value="16">16" (40cm)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="hydration">Hydration (%)</label>
+                        <div class="range-input">
+                            <input type="range" id="hydration" min="55" max="75" value="65">
+                            <span class="range-value">65%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Results Section -->
+                <section class="results-section">
+                    <h2>Recipe</h2>
+                    <div class="results-card">
+                        <div class="ingredient">
+                            <span class="ingredient-name">Flour (00/Bread)</span>
+                            <span class="ingredient-amount">500g</span>
+                        </div>
+                        <div class="ingredient">
+                            <span class="ingredient-name">Water</span>
+                            <span class="ingredient-amount">325g</span>
+                        </div>
+                        <div class="ingredient">
+                            <span class="ingredient-name">Salt</span>
+                            <span class="ingredient-amount">15g</span>
+                        </div>
+                        <div class="ingredient">
+                            <span class="ingredient-name">Yeast (Fresh)</span>
+                            <span class="ingredient-amount">3g</span>
+                        </div>
+                    </div>
+                    <div class="cooking-instructions">
+                        <h3>Cooking Instructions</h3>
+                        <div class="cooking-details">
+                            <div class="cooking-row">
+                                <div class="cooking-item">
+                                    <span class="cooking-label">Temperature:</span>
+                                    <span id="cooking-temp" class="cooking-value">450°C / 850°F</span>
+                                </div>
+                                <div class="cooking-item">
+                                    <span class="cooking-label">Cooking Time:</span>
+                                    <span id="cooking-time" class="cooking-value">60-90 seconds</span>
+                                </div>
+                            </div>
+                            <div class="cooking-item">
+                                <span class="cooking-label">Method:</span>
+                                <span id="cooking-instructions" class="cooking-value">Cook in a very hot wood-fired or high-temperature oven. The pizza should cook quickly, with slightly charred bubbles on the crust.</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Instructions Section -->
+            <section class="instructions-section">
+                <h2>Instructions</h2>
+                <div class="steps-container">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <p>Mix flour and salt in a large bowl</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <p>Dissolve yeast in lukewarm water</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <p>Gradually add water mixture to flour</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <p>Knead for 10-15 minutes until smooth</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <span class="footer-text">Made with 🤌 by</span>
+                <a href="https://github.com/alejandrosejas" target="_blank" rel="noopener noreferrer" class="footer-name">
+                    🍕 Alejandro Sejas 🍕
+                </a>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

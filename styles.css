@@ -1,0 +1,563 @@
+:root {
+    --primary-color: #9C6644;
+    --primary-hover: #7C4F33;
+    --background-color: #FDF7ED;
+    --card-background: #ffffff;
+    --text-primary: #2F2722;
+    --text-secondary: #6B5B50;
+    --border-color: #E6D5C7;
+    --success-color: #436B4D;
+    --accent-color: #CB8A58;
+    --border-radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(47, 39, 34, 0.08);
+    --shadow-md: 0 4px 6px -1px rgba(47, 39, 34, 0.08);
+    --shadow-hover: 0 10px 15px -3px rgba(47, 39, 34, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    background-image: linear-gradient(45deg, #fff9e6 25%, transparent 25%),
+                      linear-gradient(-45deg, #fff9e6 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, #fff9e6 75%),
+                      linear-gradient(-45deg, transparent 75%, #fff9e6 75%);
+    background-size: 20px 20px;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+section {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--border-color);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.input-group {
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--background-color);
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+.number-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.number-input input[type="number"] {
+    text-align: center;
+    font-weight: 600;
+    width: 80px;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    background-color: var(--card-background);
+    color: var(--text-primary);
+}
+
+/* Remove spinner buttons from number input */
+.number-input input[type="number"]::-webkit-inner-spin-button,
+.number-input input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.number-input input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Style the +/- buttons */
+.number-input button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0;
+    border: 2px solid var(--border-color);
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--primary-color);
+}
+
+.number-input button:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.range-input {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+input[type="range"] {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    background: var(--border-color);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.range-value {
+    min-width: 3rem;
+    text-align: right;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.results-card {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.ingredient {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.ingredient:last-child {
+    border-bottom: none;
+}
+
+.ingredient-name {
+    color: var(--text-secondary);
+}
+
+.ingredient-amount {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.instructions-section {
+    margin-top: 2rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.step-number {
+    background: var(--primary-color);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-weight: 600;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calculator-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .steps-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cooking-instructions {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.cooking-instructions h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.cooking-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cooking-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.cooking-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cooking-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.cooking-value {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Update responsive styles */
+@media (max-width: 768px) {
+    .cooking-item {
+        gap: 0.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cooking-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Create a grid for the first two inputs */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Style select to match number input height */
+select {
+    height: 45px;
+    background-color: var(--card-background);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Add these new styles */
+.style-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.style-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--card-background);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-height: 80px;
+}
+
+.style-btn.active {
+    border-color: var(--primary-color);
+    background: var(--background-color);
+}
+
+.style-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.style-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Add these new animation keyframes */
+@keyframes recipeUpdate {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.98);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Add this class for the animation */
+.recipe-update {
+    animation: recipeUpdate 0.3s ease-in-out;
+}
+
+/* Unit toggle styles */
+.unit-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.unit-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 160px;
+    height: 32px;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--card-background);
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.toggle-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 1;
+    transition: color 0.3s ease;
+    width: 80px;
+    text-align: center;
+}
+
+.toggle-label::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: calc(100% - 4px);
+    border-radius: 14px;
+    background-color: var(--primary-color);
+    left: 2px;
+    transition: transform 0.3s ease;
+    z-index: 0;
+}
+
+.toggle-input:checked + .toggle-label::after {
+    transform: translateX(76px);
+}
+
+.toggle-input:checked + .toggle-label .toggle-text:first-child {
+    color: var(--text-secondary);
+}
+
+.toggle-input:checked + .toggle-label .toggle-text:last-child {
+    color: white;
+}
+
+.toggle-input:not(:checked) + .toggle-label .toggle-text:first-child {
+    color: white;
+}
+
+.toggle-input:not(:checked) + .toggle-label .toggle-text:last-child {
+    color: var(--text-secondary);
+}
+
+/* Add these footer styles */
+.footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 2px solid var(--border-color);
+    animation: fadeInUp 1s ease-out;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.footer-name {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.footer-name:hover {
+    transform: scale(1.05);
+    text-decoration: underline;
+} 
