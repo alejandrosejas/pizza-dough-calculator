@@ -2,6 +2,8 @@
 
 A modern, responsive web application for calculating perfect pizza dough recipes. Try it live at: [Pizza Dough Calculator](https://alejandrosejas.github.io/pizza-dough-calculator/)
 
+![Pizza Dough Calculator Screenshot](./images/screenshot.png)
+
 ## Features
 
 ### 🎯 Multiple Pizza Styles
